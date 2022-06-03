@@ -1,0 +1,12 @@
+---
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: gateway-operator-view
+rules:
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["get"]
+  - apiGroups: ["k8s.jpoint.ru"]
+    resources: ["springcloudgatewayrouteconfigs", "springcloudgatewayrouteconfigs/status"]
+    verbs: ["get","patch", "update", "watch", "list"]

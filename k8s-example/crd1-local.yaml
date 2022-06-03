@@ -1,0 +1,12 @@
+apiVersion: k8s.jpoint.ru/v1
+kind: SpringCloudGatewayRouteConfig
+metadata:
+  name: to-gateway
+spec:
+  routes:
+    - id: self-route
+      uri: http://gateway-operator.default.svc:8080
+      predicates:
+        - Path=/self/route/**
+      filters:
+        - StripPrefix=2

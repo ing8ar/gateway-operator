@@ -1,0 +1,12 @@
+apiVersion: k8s.jpoint.ru/v1
+kind: SpringCloudGatewayRouteConfig
+metadata:
+  name: petstore-route
+spec:
+  routes:
+    - id: petstore-route-1
+      uri: http://petstore.default.svc:8080
+      predicates:
+        - Path=/petstore/**
+      filters:
+        - StripPrefix=1
